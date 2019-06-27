@@ -124,6 +124,11 @@
 
 \section{Unorganized}
 
+\section{Useful functions}
+\begin{itemize}
+  \item \python{reversed(s)} reverses an iterable and returns an iterator.
+\end{itemize}
+
 \section{Converting types}
 \subsection{How do I convert a list of chars/strings to string?}
 \begin{lstlisting}[numbers=left]
@@ -133,9 +138,22 @@
 
 \subsection{How do I convert a number to a string/vice versa?}
 \begin{lstlisting}[numbers=left]
-  >>> a = str(6.24)
-  >>> b = int("8")
-  >>> c = float("1.25")
+>>> a = str(6.24)
+>>> b = int("8")
+>>> c = float("1.25")
+\end{lstlisting}
+
+\section{String manipulation}
+\subsection{How do I convert from a character to its ASCII/vice versa?}
+\begin{lstlisting}[numbers=left]
+>>> n = ord('a')
+>>> a = chr(n)
+\end{lstlisting}
+
+\subsection{How to I convert a character/string to lower/upper case?}
+\begin{lstlisting}[numbers=left]
+>>> 'Abc'.lower()
+>>> 'Abc'.upper()
 \end{lstlisting}
 
 \section{Discriminating between different types of characters}
@@ -148,19 +166,24 @@
 
 \subsection{How do I determine if a char is whitespace?}
 \begin{lstlisting}[numbers=left]
-	>>> if c.isspace():
-	>>>   ...
+>>> if c.isspace():
+>>>   ...
 \end{lstlisting}
 
 \subsection{How do I determine if a char is alphabetical/alphanumeric?}
 \begin{lstlisting}[numbers=left]
-	>>> if c.isalpha():
-	>>>   ...
+>>> if c.isalpha():
+>>>   ...
 \end{lstlisting}
 \begin{lstlisting}[numbers=left]
-	>>> if c.isalnum():
-	>>>   ...
+>>> if c.isalnum():
+>>>   ...
 \end{lstlisting}
+
+\section{Common gotchas}
+\begin{itemize}
+\item \python{range(n)} goes from $0$ to $n-1$, \emph{not} up to $n$.
+\end{itemize}
 
 
 %\bibliography{dphil}
