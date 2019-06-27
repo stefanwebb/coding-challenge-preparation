@@ -1,0 +1,174 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage{amssymb,amstext,amsmath, amsthm}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{soul,color}
+%\usepackage[left=1in, right=1in, top=1in, bottom=1in]{geometry}
+\usepackage{listings}
+
+% if you need to pass options to natbib, use, e.g.:
+% \PassOptionsToPackage{numbers, compress}{natbib}
+% before loading nips_2018
+
+% ready for submission
+% \usepackage{nips_2018}
+
+% to compile a preprint version, e.g., for submission to arXiv, add
+% add the [preprint] option:
+%\usepackage[preprint]{nips_2018}
+\usepackage[preprint]{nips_2018}
+
+% to compile a camera-ready version, add the [final] option, e.g.:
+% \usepackage[final]{nips_2018}
+
+% to avoid loading the natbib package, add option nonatbib:
+% \usepackage[nonatbib]{nips_2018}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+
+% packages from ICML template
+\usepackage{graphicx}
+\usepackage{times}
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
+
+\usepackage{amssymb,amstext,amsmath, amsthm}
+
+\usepackage{paralist}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{setspace}
+\usepackage{multicol}
+%\usepackage{subfig}
+\usepackage{adjustbox}
+\usepackage{array}
+\usepackage{multicol}
+\usepackage{bbm}
+\usepackage{setspace}
+\usepackage{todonotes}
+\usepackage{wrapfig}
+
+\long\def\remark#1{% for notes in the margin -- from Norman Ramsey
+    \ifvmode\else
+        \unskip\raisebox{-3.5pt}[0pt][0pt]{\rlap{$\scriptstyle\diamond$}}%
+    \fi
+    \setlength\marginparwidth{1.5cm}
+    \marginpar{\raggedright\hbadness=10000
+    \parindent=8pt \parskip=2pt
+    \def\baselinestretch{0.8}\tiny
+    \itshape\noindent #1\par}}
+
+\newcolumntype{V}{>{\centering\arraybackslash} m{.4\linewidth} }
+
+%\input{preamble}
+
+%Naughtyness for space
+\setlength{\parskip}{0.3em}
+\usepackage{titlesec}
+\titlespacing\section{0pt}{4pt plus 2pt minus 2pt}{-2pt plus 2pt minus 0pt}
+\titlespacing\subsection{0pt}{4pt plus 2pt minus 2pt}{-2pt plus 2pt minus 0pt}
+\titlespacing\subsubsection{0pt}{4pt plus 2pt minus 2pt}{-2pt plus 2pt minus 0pt}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+
+%\linespread{2.0}
+\allowdisplaybreaks
+%\doublespace
+
+
+\title{Coding Challenge Notes}
+
+% The \author macro works with any number of authors. There are two
+% commands used to separate the names and addresses of multiple
+% authors: \And and \AND.
+%
+% Using \And between authors leaves it to LaTeX to determine where to
+% break the lines. Using \AND forces a line break at that point. So,
+% if LaTeX puts 3 of 4 authors names on the first line, and the last
+% on the second line, try using \AND instead of \And before the third
+% author name.
+
+\author{
+  Stefan Webb \\
+  % Department of Engineering Science \\
+  University of Oxford \\
+}
+
+
+\begin{document}
+\lstset{language=Python,xleftmargin=12pt,basicstyle=\ttfamily\footnotesize,belowskip=0pt,tabsize=2,breaklines=true}
+\newcommand{\python}[1]{\lstinline[columns=fixed]{#1}}
+
+\suppressfloats
+% \nipsfinalcopy is no longer used
+
+\setlength{\abovedisplayskip}{3.5pt}
+\setlength{\belowdisplayskip}{3.5pt}
+\setlength{\abovedisplayshortskip}{3.5pt}
+\setlength{\belowdisplayshortskip}{3.5pt}	
+
+\maketitle
+
+%\begin{abstract}
+%  \input{abstract}
+%\end{abstract}
+
+\section{Unorganized}
+
+\section{Converting types}
+\subsection{How do I convert a list of chars/strings to string?}
+\begin{lstlisting}[numbers=left]
+>>> string = ['a', 'b', 'c']
+>>> "".join(strings)
+\end{lstlisting}
+
+\subsection{How do I convert a number to a string/vice versa?}
+\begin{lstlisting}[numbers=left]
+  >>> a = str(6.24)
+  >>> b = int("8")
+  >>> c = float("1.25")
+\end{lstlisting}
+
+\section{Discriminating between different types of characters}
+\subsection{How do I determine if a char is punctuation?}
+\begin{lstlisting}[numbers=left]
+>>> import string
+>>> if c is in string.punctuation:
+>>>   ...
+\end{lstlisting}
+
+\subsection{How do I determine if a char is whitespace?}
+\begin{lstlisting}[numbers=left]
+	>>> if c.isspace():
+	>>>   ...
+\end{lstlisting}
+
+\subsection{How do I determine if a char is alphabetical/alphanumeric?}
+\begin{lstlisting}[numbers=left]
+	>>> if c.isalpha():
+	>>>   ...
+\end{lstlisting}
+\begin{lstlisting}[numbers=left]
+	>>> if c.isalnum():
+	>>>   ...
+\end{lstlisting}
+
+
+%\bibliography{dphil}
+%\bibliographystyle{icml2018}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
