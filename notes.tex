@@ -105,7 +105,7 @@
 
 
 \begin{document}
-\lstset{language=Python,xleftmargin=12pt,basicstyle=\ttfamily\footnotesize,belowskip=0pt,tabsize=2,breaklines=true}
+\lstset{language=Python,xleftmargin=12pt,basicstyle=\ttfamily\footnotesize,aboveskip=-6pt, belowskip=0pt,tabsize=2,breaklines=true}
 \newcommand{\python}[1]{\lstinline[columns=fixed]{#1}}
 
 \suppressfloats
@@ -123,6 +123,10 @@
 %\end{abstract}
 
 \section{Unorganized}
+\begin{itemize}
+  \item I appear to be much slower at implementing recursive solutions! It really helps to draw a picture of the recursion stack here.
+  \item A general problem: generate all subsets of a string/list.
+\end{itemize}
 
 \section{Useful functions}
 \begin{itemize}
@@ -142,6 +146,34 @@
 >>> b = int("8")
 >>> c = float("1.25")
 \end{lstlisting}
+
+\section{Dictionary manipulation}
+\subsection{How do I get the keys/values of a dictionary?}
+\begin{lstlisting}[numbers=left]
+>>> x = {'a': 1, 'b': 2, 'c': 3}
+>>> x.keys(), x.values()
+\end{lstlisting}
+\emph{Get the values with, e.g., \python{x.values()} not \python{x.vals()}.}
+
+\section{List manipulation}
+\subsection{How do I get the max/min element of a list?}
+\begin{lstlisting}[numbers=left]
+>>> x = [5,7,12,1,2]
+>>> min(x), max(x)
+\end{lstlisting}
+
+\subsection{How do I filter a list?}
+\begin{lstlisting}[numbers=left]
+>>> [x for x in arr if x < 5]
+\end{lstlisting}
+\emph{The \python{if} must come after the \python{for} in the comprehension, unlike when you do an \python{if/else} clause.}
+
+\subsection{How do I remove duplicates?}
+\begin{lstlisting}[numbers=left]
+>>> x = [1, 3, 7, 9, 1]
+>>> x = list(set(x))
+\end{lstlisting}
+This will change the order.
 
 \section{String manipulation}
 \subsection{How do I convert from a character to its ASCII/vice versa?}
@@ -174,9 +206,15 @@
 \begin{lstlisting}[numbers=left]
 >>> if c.isalpha():
 >>>   ...
-\end{lstlisting}
-\begin{lstlisting}[numbers=left]
 >>> if c.isalnum():
+>>>   ...
+\end{lstlisting}
+
+\subsection{How do I determine if upper or lower case?}
+\begin{lstlisting}[numbers=left]
+>>> if c.isupper():
+>>>   ...
+>>> if c.islower():
 >>>   ...
 \end{lstlisting}
 
@@ -184,8 +222,25 @@
 \begin{itemize}
 \item \python{range(n)} goes from $0$ to $n-1$, \emph{not} up to $n$.
 \item There is neither \python{++} nor \python{--} operators in Python. Use \python{+= 1} and \python{-= 1} instead.
-\end{itemize}
+\item The not operator is \python{not}, not !
+\item To increment a dictionary value that may not have a corresponding key:
 
+\begin{lstlisting}[numbers=left]
+>>> x.setdefault('x', 0) += 1
+>>> x['x'] += 1
+\end{lstlisting}
+\item You cannot overwrite the value of a \python{for} loop inside the loop body. Instead you should use \python{while} for this idiom:
+
+\begin{lstlisting}[numbers=left]
+  >>> i = 0
+  >>> while i < 10:
+  >>>   ...
+  >>>   if cond:
+  >>>     i += 5
+  >>>   i += 1
+  \end{lstlisting}
+
+\end{itemize}
 
 %\bibliography{dphil}
 %\bibliographystyle{icml2018}
