@@ -122,8 +122,10 @@
 %  \input{abstract}
 %\end{abstract}
 
-\section{Unorganized}
+\section{Observations/unorganized}
 \begin{itemize}
+  \item Being super familiar with all the basic operations on the basic types is super important!
+  \item For each language, know by heart: What are the basic types? What are the basic operations on these? What are common gotchas with the basic types? How do the basic types relate to those of other languages?
   \item I appear to be much slower at implementing recursive solutions! It really helps to draw a picture of the recursion stack here.
   \item A general problem: generate all subsets of a string/list.
 \end{itemize}
@@ -131,6 +133,7 @@
 \section{Useful functions}
 \begin{itemize}
   \item \python{reversed(s)} reverses an iterable and returns an iterator.
+  \item \python{sorted(s, key=lambda x:x[0])} can take a key function to do custom sorting.
 \end{itemize}
 
 \section{Converting types}
@@ -175,6 +178,15 @@
 \end{lstlisting}
 This will change the order.
 
+\subsection{How do I multiply together all elements?}
+\begin{lstlisting}[numbers=left]
+  >>> import operator
+  >>> import functools
+  >>> x = [1, 3, 7, 9, 1]
+  >>> total = functools.reduce(operator.mul, x, 1)
+\end{lstlisting}
+This is unlike adding together all elements \python{x.sum()}, which is built into the standard library.
+
 \section{String manipulation}
 \subsection{How do I convert from a character to its ASCII/vice versa?}
 \begin{lstlisting}[numbers=left]
@@ -186,6 +198,33 @@ This will change the order.
 \begin{lstlisting}[numbers=left]
 >>> 'Abc'.lower()
 >>> 'Abc'.upper()
+\end{lstlisting}
+
+\subsection{How do I remove/replace a character?}
+\begin{lstlisting}[numbers=left]
+>>> '(abc)'.replace('(','').replace(')', ']')
+\end{lstlisting}
+  
+\section{Set manipulation}
+\subsection{How do I add/remove an element from a set?}
+\begin{lstlisting}[numbers=left]
+>>> x = {1, 3, 9, 6}
+>>> x.remove(3)
+>>> x.add(7)
+\end{lstlisting}
+These methods have an intuitive name.
+
+\subsection{How do I get the maximum/minimum element?}
+\begin{lstlisting}[numbers=left]
+>>> max(x), min(x)
+\end{lstlisting}
+The same methods work on lists.
+
+\subsection{How do I take the union/intersection/difference of sets?}
+\begin{lstlisting}[numbers=left]
+>>> x.intersection(y), x & y
+>>> x.union(y), x | y
+>>> x.difference(y) x - y
 \end{lstlisting}
 
 \section{Discriminating between different types of characters}
@@ -239,6 +278,7 @@ This will change the order.
   >>>     i += 5
   >>>   i += 1
   \end{lstlisting}
+\item A slice is not iterable. Instead should do, e.g. \python{set(range(2, 8))}.
 
 \end{itemize}
 
