@@ -124,6 +124,7 @@
 
 \section{Observations/unorganized}
 \begin{itemize}
+  \item \emph{Do the simplest/naive solution first! Then refine.}
   \item Being super familiar with all the basic operations on the basic types is super important!
   \item For each language, know by heart: What are the basic types? What are the basic operations on these? What are common gotchas with the basic types? How do the basic types relate to those of other languages?
   \item I appear to be much slower at implementing recursive solutions! It really helps to draw a picture of the recursion stack here.
@@ -204,7 +205,12 @@ This is unlike adding together all elements \python{x.sum()}, which is built int
 \begin{lstlisting}[numbers=left]
 >>> '(abc)'.replace('(','').replace(')', ']')
 \end{lstlisting}
-  
+
+\subsection{How do I reverse a string?}
+\begin{lstlisting}[numbers=left]
+>>> 'abc'[::-1]
+\end{lstlisting}
+
 \section{Set manipulation}
 \subsection{How do I add/remove an element from a set?}
 \begin{lstlisting}[numbers=left]
@@ -279,7 +285,7 @@ The same methods work on lists.
   >>>   i += 1
   \end{lstlisting}
 \item A slice is not iterable. Instead should do, e.g. \python{set(range(2, 8))}.
-
+\item A string is immutable, so you cannot assign to one of its elements with e.g. \python{s[2] = 'a'}.
 \end{itemize}
 
 %\bibliography{dphil}
