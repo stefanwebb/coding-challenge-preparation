@@ -129,6 +129,7 @@
   \item For each language, know by heart: What are the basic types? What are the basic operations on these? What are common gotchas with the basic types? How do the basic types relate to those of other languages?
   \item I appear to be much slower at implementing recursive solutions! It really helps to draw a picture of the recursion stack here.
   \item A general problem: generate all subsets of a string/list.
+  \item Learn about the min heap data structure in the Python standard library.
 \end{itemize}
 
 \section{Useful functions}
@@ -265,6 +266,8 @@ The same methods work on lists.
 
 \section{Common gotchas}
 \begin{itemize}
+\item Do not forget to return the value from a function. This is a common mistake I have made!
+\item Think whether the type is string or number when dealing with digits. Another common mistake!
 \item \python{range(n)} goes from $0$ to $n-1$, \emph{not} up to $n$.
 \item There is neither \python{++} nor \python{--} operators in Python. Use \python{+= 1} and \python{-= 1} instead.
 \item The not operator is \python{not}, not !
@@ -286,6 +289,8 @@ The same methods work on lists.
   \end{lstlisting}
 \item A slice is not iterable. Instead should do, e.g. \python{set(range(2, 8))}.
 \item A string is immutable, so you cannot assign to one of its elements with e.g. \python{s[2] = 'a'}.
+\item You add an item to a set with \python{.add()}, \emph{not \python{.insert()} which is used for lists}.
+\item Do not confuse multiplication \python{*} and power \python{**}.
 \end{itemize}
 
 %\bibliography{dphil}
