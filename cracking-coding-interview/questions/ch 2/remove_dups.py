@@ -27,3 +27,28 @@ class LinkedNode(object):
     def __init__(self, data, child):
         self.data = data
         self.child = child
+
+def remove_duplicates(ll):
+    root = ll.root
+    elems = set([root.data])
+
+    prev = root
+    root = prev.child
+
+    while root is not None:
+        # If duplicate then remove this link
+        if root.data in elems:
+            prev.child = root.child
+            root = prev.child
+            continue
+
+        # Else add to unique list
+        elems.add(root.data)
+        prev = prev.child
+        root = root.child
+            
+    return ll
+
+ll = LinkedList([1, 7, 9, 7, 3, 76, 6, 1, 1])
+
+print(remove_duplicates(ll))
