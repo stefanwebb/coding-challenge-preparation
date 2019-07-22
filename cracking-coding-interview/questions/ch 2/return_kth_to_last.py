@@ -73,8 +73,9 @@ def return_kth_last2(root, k):
 Notes on solution:
 
 1. Start with naive solution and improve upon it.
-2. Describe time/memory complexity.
+2. Give code a once over after writing solution looking for bugs.
 3. Think of edge cases!
+4. Describe time/memory complexity.
 
 """
 

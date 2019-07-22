@@ -1,4 +1,4 @@
-# Q2.1 Write code to remove duplicates from a linked list
+# Q2.3 Implement an algorithm to delete a node in the middle (i.e. not but the first and last, not necessarily the exact middle) of a singly linked list, given only access to that node.
 
 class LinkedList(object):
     def __init__(self, data=[]):
@@ -28,27 +28,22 @@ class LinkedNode(object):
         self.data = data
         self.child = child
 
-def remove_duplicates(ll):
-    root = ll.root
-    if root is None:
+def delete_middle_node(ll, node):
+    prev = ll.root
+    if prev is None:
         return ll
-
-    elems = set([root.data])
-    prev = root
     root = prev.child
 
-    while root is not None:
-        # If duplicate then remove this link
-        if root.data in elems:
+    while root.child is not None:
+        if root.data == node:
             prev.child = root.child
-            root = prev.child
-            continue
+            break
 
-        # Else add to unique list
-        elems.add(root.data)
         prev = prev.child
         root = root.child
-            
+
     return ll
 
-print(remove_duplicates(ll))
+ll = LinkedList([1, 7, 9, 3, 6, 1.5])
+
+print(delete_middle_node(ll, 7))
