@@ -235,6 +235,38 @@ The same methods work on lists.
 >>> x.difference(y) x - y
 \end{lstlisting}
 
+\section{Queues}
+\subsection{How do I use the built-in queue data structure?}
+\begin{lstlisting}[numbers=left]
+>>> import queue
+>>> L = queue.Queue(maxsize=20)
+>>> L.put(5, False) # Insert data at end of queue
+>>> print(L.get(False)) # Remove item from front of queue
+\end{lstlisting}
+
+\subsection{How do I test whether a queue is empty/full?}
+\begin{lstlisting}[numbers=left]
+>>> L.empty(), L.full()
+\end{lstlisting}
+  
+\subsection{How do I use the built-in min priority queue?}
+\begin{lstlisting}[numbers=left]
+>>> L = queue.PriorityQueue(maxsize=20)
+>>> L.put((3, 'a'), False)
+>>> L.put((2, 'b'), False)
+>>> L.put((1, 'c'), False)
+>>> print(L.get(False))
+\end{lstlisting}
+
+\subsection{How do I use the built-in deque?}
+\begin{lstlisting}[numbers=left]
+>>> from collections import deque
+>>> deq = deque(['a', 'b', 'c'])
+>>> deq.append('d'), deq.appendleft('z')
+>>> deq.pop(), deq.popleft()
+\end{lstlisting}
+This is implemented internally in Python as a doubly linked list.
+  
 \section{Discriminating between different types of characters}
 \subsection{How do I determine if a char is punctuation?}
 \begin{lstlisting}[numbers=left]
