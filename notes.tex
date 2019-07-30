@@ -325,6 +325,7 @@ This is implemented internally in Python as a doubly linked list.
 \item You add an item to a set with \python{.add()}, \emph{not \python{.insert()} which is used for lists}.
 \item Do not confuse multiplication \python{*} and power \python{**}.
 \item Can do \python{max} on an iterable: \python{max(chars.values())}.
+\item For a set, use \python{.discard()} to remove key if it exists. \python{.remove()} throws an exception for keys that don't exist.
 \end{itemize}
 
 %\bibliography{dphil}
